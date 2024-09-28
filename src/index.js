@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bcrypt =require("bcrypt");
 const User = require("./config");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -16,9 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 // middleware to parse request body
-//app.use(bodyParser.urlencoded({ extended: true}));
-
-app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: true}));
 
 // login user
 app.get("/login", (req, res) => {
